@@ -1,0 +1,12 @@
+.env
+.env.*
+secrets
+credentials
+*.pem
+*.key
+node_modules
+dist
+coverage
+.git
+tests
+.npm-cache

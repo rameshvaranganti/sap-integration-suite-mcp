@@ -1,0 +1,10 @@
+name: Feature request
+description: Propose a monitoring improvement.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and proposed behavior
+      description: Explain the read-only use case and link official SAP documentation for any API.
+    validations:
+      required: true
