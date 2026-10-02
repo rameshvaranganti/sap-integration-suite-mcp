@@ -8,7 +8,7 @@ Open-source MCP server for SAP Integration Suite monitoring, failed-message anal
 
 This is an independent open-source project and is not an official SAP product.
 
-**Checkout validation:** dependency installation was blocked by this execution environment. The full test suite and build have not passed here, and the supplied empty lockfile must be regenerated before CI or Docker use. See [validation status and release checklist](docs/VALIDATION.md).
+See [validation status and release checklist](docs/VALIDATION.md) for local verification results and remaining deployment checks. Local validation does not establish compatibility with every SAP tenant configuration.
 
 Self-host the server in your environment and connect your MCP-compatible AI client. The server retrieves read-only monitoring metadata from your own SAP Integration Suite / SAP Cloud Integration tenant. Your chosen client performs inference; this server never calls an LLM.
 
@@ -83,7 +83,7 @@ The built-in logger emits operation information at info/debug and suppresses it 
 From a checkout of this repository:
 
 ```sh
-npm install
+npm ci
 npm run build
 ```
 
@@ -93,7 +93,7 @@ Supply environment variables through your secret manager or protected process en
 node --env-file=.env dist/index.js --stdio
 ```
 
-No credentials are required to run tests. Once the lockfile is generated and committed, contributors and CI should use `npm ci`.
+No SAP credentials are required to run tests; SAP responses are mocked. The repository includes a committed dependency lockfile. Contributors and CI should use `npm ci` for reproducible installation.
 
 ## Local stdio
 
@@ -177,7 +177,7 @@ npm run test:coverage
 npm run build
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md) and [code of conduct](CODE_OF_CONDUCT.md). Add your actual GitHub Actions status badge after choosing the repository URL. Enable private vulnerability reporting before release.
+See [CONTRIBUTING.md](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md) and [code of conduct](CODE_OF_CONDUCT.md). Release verification is documented in the [validation checklist](docs/VALIDATION.md).
 
 ## Roadmap
 
